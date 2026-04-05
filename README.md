@@ -645,13 +645,3 @@ LockSys/
 
 ---
 
-## Roadmap
-
-- [x] Phase 1 — Auth, vault/entry CRUD, AES-256-GCM encryption, auto-lock, clipboard
-- [x] Phase 1.5 — Admin system, invite tokens, role-based access
-- [x] Phase 1.6 — PWA: installable as a desktop app (Chrome / Edge / Brave / Safari)
-- [ ] Phase 2 — Password health dashboard (weak / reused / old)
-- [ ] Phase 3 — TOTP/2FA with live countdown display
-- [ ] Phase 4 — Entry sharing between users
-- [ ] Phase 5 — Import/export (Bitwarden JSON, CSV)
-- [ ] Phase 6 — CLI, change master password, theme toggle
