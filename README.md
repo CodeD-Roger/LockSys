@@ -1,4 +1,4 @@
-# Vaultix
+# LockSys
 
 Self-hosted, zero-knowledge password manager. Runs entirely on localhost — no cloud, no telemetry, no external requests.
 
@@ -46,8 +46,8 @@ Self-hosted, zero-knowledge password manager. Runs entirely on localhost — no 
 > Open **PowerShell** (not CMD). Right-click the Start menu → "Windows PowerShell".
 
 ```powershell
-git clone https://github.com/your-username/vaultix.git
-cd vaultix
+git clone https://github.com/your-username/LockSys.git
+cd Locksys
 .\start.ps1
 ```
 
@@ -59,8 +59,8 @@ Open **http://localhost:8000** in your browser. Done.
 #### Step 1 — Clone the repository
 
 ```powershell
-git clone https://github.com/your-username/vaultix.git
-cd vaultix
+git clone https://github.com/your-username/LockSys.git
+cd LockSys
 ```
 
 #### Step 2 — Create the `.env` file with secrets
@@ -108,8 +108,8 @@ Open **http://localhost:8000** in your browser.
 ### macOS (Bash / Zsh)
 
 ```bash
-git clone https://github.com/your-username/vaultix.git
-cd vaultix
+git clone https://github.com/your-username/LockSys.git
+cd LockSys
 chmod +x start.sh && ./start.sh
 ```
 
@@ -158,8 +158,8 @@ sudo pacman -S python python-pip nodejs npm
 #### Step 2 — Clone and start
 
 ```bash
-git clone https://github.com/your-username/vaultix.git
-cd vaultix
+git clone https://github.com/your-username/LockSys.git
+cd LockSys
 chmod +x start.sh && ./start.sh
 ```
 
@@ -174,19 +174,19 @@ Then open `http://<raspberry-ip>:8000` from any device on the network.
 #### Run as a system service (auto-start on boot)
 
 ```bash
-sudo nano /etc/systemd/system/vaultix.service
+sudo nano /etc/systemd/system/LockSys.service
 ```
 
 ```ini
 [Unit]
-Description=Vaultix Password Manager
+Description=LockSys Password Manager
 After=network.target
 
 [Service]
 Type=simple
 User=YOUR_USER
-WorkingDirectory=/home/YOUR_USER/vaultix
-ExecStart=/home/YOUR_USER/vaultix/start.sh
+WorkingDirectory=/home/YOUR_USER/LockSys
+ExecStart=/home/YOUR_USER/LockSys/start.sh
 Restart=on-failure
 RestartSec=5
 
@@ -196,7 +196,7 @@ WantedBy=multi-user.target
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable --now vaultix
+sudo systemctl enable --now LockSys
 ```
 
 <details>
@@ -232,8 +232,8 @@ Docker handles everything in one command. No need to install Python or Node.js s
 #### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/your-username/vaultix.git
-cd vaultix
+git clone https://github.com/your-username/LockSys.git
+cd LockSys
 
 Copy-Item .env.example .env
 python -c "
@@ -253,8 +253,8 @@ docker compose up --build
 #### macOS / Linux
 
 ```bash
-git clone https://github.com/your-username/vaultix.git
-cd vaultix
+git clone https://github.com/your-username/LockSys.git
+cd LockSys
 
 cp .env.example .env
 python3 -c "
@@ -292,7 +292,7 @@ Open **http://localhost:3000** in your browser.
 
 ## Install as desktop app (PWA)
 
-Vaultix can be installed as a standalone desktop application directly from the browser — no store, no installer required.
+LockSys can be installed as a standalone desktop application directly from the browser — no store, no installer required.
 
 ### Requirements
 
@@ -308,10 +308,10 @@ Vaultix can be installed as a standalone desktop application directly from the b
 
 Once the app is running and the icons are generated:
 
-1. Open Vaultix in **Chrome, Edge, or Brave**
+1. Open LockSys in **Chrome, Edge, or Brave**
 2. An **"Install app"** button appears at the bottom of the left sidebar
 3. Click it — the browser opens its native install dialog
-4. Confirm — Vaultix is added to your desktop and taskbar
+4. Confirm — LockSys is added to your desktop and taskbar
 
 The app opens in its own window (no browser chrome, no address bar), exactly like a native application. It can be uninstalled at any time like any regular app.
 
@@ -388,7 +388,7 @@ docker compose down
 The entire vault lives in a single file:
 
 ```
-vaultix/data/vaultix.db
+LockSys/data/LockSys.db
 ```
 
 ### Backup
@@ -396,18 +396,18 @@ vaultix/data/vaultix.db
 #### Windows (PowerShell)
 ```powershell
 $ts = Get-Date -Format "yyyyMMdd_HHmmss"
-Copy-Item .\data\vaultix.db ".\data\vaultix_backup_$ts.db"
+Copy-Item .\data\LockSys.db ".\data\LockSys_backup_$ts.db"
 ```
 
 #### macOS / Linux
 ```bash
-cp ./data/vaultix.db ./data/vaultix_backup_$(date +%Y%m%d_%H%M%S).db
+cp ./data/LockSys.db ./data/LockSys_backup_$(date +%Y%m%d_%H%M%S).db
 ```
 
 ### Restore
 
 1. Stop the app
-2. Replace `./data/vaultix.db` with your backup file
+2. Replace `./data/LockSys.db` with your backup file
 3. Restart the app
 
 ---
@@ -446,11 +446,11 @@ The database already contains a user. To start fresh:
 2. Delete the database file:
    ```powershell
    # Windows
-   Remove-Item .\data\vaultix.db
+   Remove-Item .\data\LockSys.db
    ```
    ```bash
    # macOS / Linux
-   rm ./data/vaultix.db
+   rm ./data/LockSys.db
    ```
 3. Restart — the tab reappears
 
@@ -462,13 +462,13 @@ Your account is not flagged as admin in the database. This happens when:
 - The database was not reset before creating the first account with the new code
 - The account was created before the admin system was set up
 
-Fix: delete `data/vaultix.db` and create a new first account (see above).
+Fix: delete `data/LockSys.db` and create a new first account (see above).
 
 ---
 
 ### DB_PATH / database created in the wrong location
 
-If you copied `.env.example` to `.env` without modification, the line `DB_PATH=/app/data/vaultix.db` points to a Docker-specific path. Remove it for local development.
+If you copied `.env.example` to `.env` without modification, the line `DB_PATH=/app/data/LockSys.db` points to a Docker-specific path. Remove it for local development.
 
 Your `.env` should look like this for local use (no Docker):
 
@@ -478,7 +478,7 @@ DB_KEY=<your-generated-secret>
 ENVIRONMENT=development
 ```
 
-No `DB_PATH` line. The database will be created automatically in `./data/vaultix.db`.
+No `DB_PATH` line. The database will be created automatically in `./data/LockSys.db`.
 
 ---
 
@@ -540,7 +540,7 @@ Kill the process or change the port:
 
 ### Python version check fails
 
-Vaultix requires Python **3.11 or higher**.
+LockSys requires Python **3.11 or higher**.
 
 ```bash
 python3 --version   # macOS / Linux
@@ -562,8 +562,8 @@ All configuration is done via the `.env` file in the project root.
 | Variable | Required | Default | Description |
 |---|---|---|---|
 | `JWT_SECRET` | **Yes** | — | Secret key for signing JWT tokens. Generate with `python3 -c "import secrets; print(secrets.token_hex(32))"` |
-| `DB_KEY` | No | `vaultix_dev_insecure_key_change_me` | SQLCipher encryption key (only used with Docker / SQLCipher). Ignored with plain SQLite. |
-| `DB_PATH` | No | `./data/vaultix.db` | Path to the SQLite database. **Do not set this for local development** — it's only used inside Docker. |
+| `DB_KEY` | No | `LockSys_dev_insecure_key_change_me` | SQLCipher encryption key (only used with Docker / SQLCipher). Ignored with plain SQLite. |
+| `DB_PATH` | No | `./data/LockSys.db` | Path to the SQLite database. **Do not set this for local development** — it's only used inside Docker. |
 | `ENVIRONMENT` | No | `development` | Set to `production` to hide `/docs` (API documentation). |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` | No | `15` | Access token lifetime in minutes. |
 | `REFRESH_TOKEN_EXPIRE_DAYS` | No | `7` | Refresh token lifetime in days. |
@@ -589,7 +589,7 @@ All configuration is done via the `.env` file in the project root.
 ## Project structure
 
 ```
-vaultix/
+LockSys/
 ├── backend/                  # Python — FastAPI + SQLite
 │   ├── main.py               # App entry point, middleware, CORS
 │   ├── config.py             # Settings (reads .env from project root)
@@ -635,7 +635,7 @@ vaultix/
 ├── frontend/
 │   └── generate-icons.py     # One-time script: generates PWA icons (no dependencies)
 │
-├── data/                     # Created automatically — contains vaultix.db
+├── data/                     # Created automatically — contains LockSys.db
 ├── start.sh                  # One-command startup — Linux / macOS / Raspberry Pi
 ├── start.ps1                 # One-command startup — Windows PowerShell
 ├── docker-compose.yml
