@@ -46,7 +46,7 @@ Self-hosted, zero-knowledge password manager. Runs entirely on localhost — no 
 > Open **PowerShell** (not CMD). Right-click the Start menu → "Windows PowerShell".
 
 ```powershell
-git clone https://github.com/your-username/LockSys.git
+git clone https://github.com/CodeD-Roger/LockSys.git
 cd Locksys
 .\start.ps1
 ```
@@ -59,7 +59,7 @@ Open **http://localhost:8000** in your browser. Done.
 #### Step 1 — Clone the repository
 
 ```powershell
-git clone https://github.com/your-username/LockSys.git
+git clone https://github.com/CodeD-Roger/LockSys.git
 cd LockSys
 ```
 
@@ -108,7 +108,7 @@ Open **http://localhost:8000** in your browser.
 ### macOS (Bash / Zsh)
 
 ```bash
-git clone https://github.com/your-username/LockSys.git
+git clone https://github.com/CodeD-Roger/LockSys.git
 cd LockSys
 chmod +x start.sh && ./start.sh
 ```
@@ -158,7 +158,7 @@ sudo pacman -S python python-pip nodejs npm
 #### Step 2 — Clone and start
 
 ```bash
-git clone https://github.com/your-username/LockSys.git
+git clone https://github.com/CodeD-Roger/LockSys.git
 cd LockSys
 chmod +x start.sh && ./start.sh
 ```
@@ -232,7 +232,7 @@ Docker handles everything in one command. No need to install Python or Node.js s
 #### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/your-username/LockSys.git
+git clone https://github.com/CodeD-Roger/LockSys.git
 cd LockSys
 
 Copy-Item .env.example .env
@@ -253,7 +253,7 @@ docker compose up --build
 #### macOS / Linux
 
 ```bash
-git clone https://github.com/your-username/LockSys.git
+git clone https://github.com/CodeD-Roger/LockSys.git
 cd LockSys
 
 cp .env.example .env
