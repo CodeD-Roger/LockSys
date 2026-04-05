@@ -1,0 +1,45 @@
+# ── Secrets & environment ─────────────────────────────────────────────────────
+.env
+backend/.env
+*.env.local
+
+# ── Database ──────────────────────────────────────────────────────────────────
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# ── Python ────────────────────────────────────────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# ── PWA icons (generated at runtime by generate-icons.py) ────────────────────
+frontend/public/pwa-192x192.png
+frontend/public/pwa-512x512.png
+frontend/public/apple-touch-icon.png
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo

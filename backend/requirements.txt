@@ -1,0 +1,14 @@
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-jose[cryptography]==3.3.0
+argon2-cffi==23.1.0
+cryptography==42.0.8
+slowapi==0.1.9
+pydantic==2.7.1
+pydantic-settings==2.2.1
+python-multipart==0.0.9
+aiofiles==23.2.1
+# sqlcipher3 is optional — provides AES-256 encryption of the SQLite file at rest.
+# Requires the SQLCipher C library (easy on Linux/Mac, complex on Windows).
+# Without it the app falls back to standard unencrypted SQLite (fine for development).
+# In production (Docker), the Dockerfile installs libsqlcipher-dev automatically.
